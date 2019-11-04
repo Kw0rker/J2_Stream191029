@@ -1,2 +1,4 @@
 # Project exclude paths
 /out/
+/src/ru/gb/jtwo/lone/online/lesson2/main.java
+/src/ru/gb/jtwo/lone/online/lesson2/Matrix.java
