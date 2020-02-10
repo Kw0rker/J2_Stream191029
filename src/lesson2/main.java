@@ -32,6 +32,7 @@ public class main {
     private static void ParallelMergeSortCheck() {
         long time =System.nanoTime();
         System.out.println("Parallel MergeSort  Method");
+        ArraySort.ParallelMergeSort(arrayToSort);
         System.out.println("time:"+(System.nanoTime()-time)/1e-6);
     }
 

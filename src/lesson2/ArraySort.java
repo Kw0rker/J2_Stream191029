@@ -43,7 +43,7 @@ public class ArraySort {
     public static int[]mergeSort(int []arr){
        int []temp =new int[arr.length];
        mergeSort(temp,arr,0,arr.length-1);
-       return temp;
+       return arr;
     }
     public static int[] ParallelMergeSort(int []arr){
         int []temp =new int[arr.length];
@@ -55,12 +55,13 @@ public class ArraySort {
         return arr;
     }
 
-    private static void mergeSort(int[] temp, int[] arr, int lo, int hi) {
-        if (lo<=hi)return;
+    private static int [] mergeSort(int[] temp, int[] arr, int lo, int hi) {
+        if (lo<=hi)return arr;
         int mid = lo + (hi - lo) / 2;
         mergeSort(temp,arr,0,mid);
         mergeSort(temp,arr,mid+1,hi);
         merge(temp,arr,lo,mid,hi);
+        return arr;
     }
     private static int[] ParallelMergeSort (int[] temp, int[] arr, int lo, int hi) throws InterruptedException{
         if (lo<=hi)return arr;
