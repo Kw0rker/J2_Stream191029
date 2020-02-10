@@ -1,16 +1,53 @@
 package ru.gb.jtwo.lone.online.lesson1;
 
 import javafx.util.Pair;
+import lesson2.ArraySort;
+import lesson2.DynamicArray;
 
 import java.awt.*;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Objects;
+import java.util.*;
 
 public class main {
+    static Random random =new Random();
+   static int[] arrayToSort=new int[10000];
     public static void main(String[] args) {
+        DynamicArray<Integer>array =new DynamicArray<>();
+        array.add(1);
+        array.add(2);
+        array.add(3);
+        array.add(4);
+        array.add(4);
+        System.out.println(array);
+        array.remove(2);
+        System.out.println(array);
+        array.remove(new Integer(4));
+        System.out.println(array);
+        //System.out.println(array.get(20));
+        fillRandom(arrayToSort);
+
+        bubbleSortCheck();
+        selectionSortCheck();
+        long time =System.nanoTime();
+        System.out.println("Bubble Method");
+        ArraySort.bubbleSort(arrayToSort);
+        System.out.println("time:"+(System.nanoTime()-time)/1e-6);
 
     }
+
+    private static void selectionSortCheck() {
+        long time =System.nanoTime();
+        System.out.println("Selection Method");
+        ArraySort.selectSort(arrayToSort);
+        System.out.println("time:"+(System.nanoTime()-time)/1e-6);
+    }
+
+    private static void bubbleSortCheck() {
+        long time =System.nanoTime();
+        System.out.println("Bubble Method");
+        ArraySort.bubbleSort(arrayToSort);
+        System.out.println("time:"+(System.nanoTime()-time)/1e-6);
+    }
+
     public HashSet<Triplet<Integer,Integer,Integer>> findTriples(int [] arr){
         HashSet<Triplet<Integer,Integer,Integer>> result=new HashSet<>();
         for (int i = 0; i < arr.length;) {
@@ -32,6 +69,12 @@ public class main {
         result=three.sort(result);
         System.out.println("сложность nlog(n");
         return new Pair<>(result.get(arr.length-2),result.get(arr.length-1));
+    }
+    static int [] fillRandom(int[]arr) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt();
+        }
+        return arr;
     }
 }
 class Triplet<T1,T2,T3>{
@@ -71,30 +114,34 @@ class Triplet<T1,T2,T3>{
         return Objects.hash(f, s, t);
     }
 }
-class Three<T>{
+class Three<T> {
     T t;
-    Three(T t){
-        this.key=t.hashCode();
-        this.t=t;
+
+    Three(T t) {
+        this.key = t.hashCode();
+        this.t = t;
     }
+
     int key;
     Three right;
     Three left;
-    public void insert(Three three){
-        if (three.key<this.key){
-            if (left!=null)left.insert(three);
-            else left=three;
-        }
-        else{
-            if (right!=null)right.insert(three);
-            else right=three;
+
+    public void insert(Three three) {
+        if (three.key < this.key) {
+            if (left != null) left.insert(three);
+            else left = three;
+        } else {
+            if (right != null) right.insert(three);
+            else right = three;
         }
     }
-    public LinkedList<T> sort(LinkedList<T> result){
-        if (this.left!=null)this.left.sort(result);
+
+    public LinkedList<T> sort(LinkedList<T> result) {
+        if (this.left != null) this.left.sort(result);
         result.add(t);
-        if (this.right!=null)this.right.sort(result);
+        if (this.right != null) this.right.sort(result);
         return result;
 
     }
+
 }
