@@ -1,6 +1,6 @@
-package lesson2;
+package main.java.lesson2;
 
-public class ArraySort {
+public class ArraySort<T> {
    public static int[] bubbleSort(int []arr){
         for (int i=arr.length-1;i>0;i--) {
             for (int j=0;j<i;j++){
@@ -40,13 +40,13 @@ public class ArraySort {
         }
         return arr;
     }
-    public static int[]mergeSort(int []arr){
+   /* public static int[]mergeSort(int []arr){
        int []temp =new int[arr.length];
        mergeSort(temp,arr,0,arr.length-1);
        return arr;
-    }
-    public static int[] ParallelMergeSort(int []arr){
-        int []temp =new int[arr.length];
+    }*/
+   /* public T[] ParallelMergeSort(T[] arr){
+        T []temp = (T[]) new Object[arr.length];
         try {
             ParallelMergeSort(temp,arr,0,arr.length-1);
         } catch (InterruptedException e) {
@@ -55,15 +55,15 @@ public class ArraySort {
         return arr;
     }
 
-    private static int [] mergeSort(int[] temp, int[] arr, int lo, int hi) {
+    private T[] mergeSort(T []temp, T[] arr, int lo, int hi) {
         if (lo<=hi)return arr;
         int mid = lo + (hi - lo) / 2;
         mergeSort(temp,arr,0,mid);
         mergeSort(temp,arr,mid+1,hi);
         merge(temp,arr,lo,mid,hi);
         return arr;
-    }
-    private static int[] ParallelMergeSort (int[] temp, int[] arr, int lo, int hi) throws InterruptedException{
+    }*/
+   /* private T[] ParallelMergeSort (T[] temp, T[] arr, int lo, int hi) throws InterruptedException{
         if (lo<=hi)return arr;
         int mid = lo + (hi - lo) / 2;
         Thread thread1=new Thread(new Runnable() {
@@ -85,7 +85,7 @@ public class ArraySort {
        return merge(temp,arr,lo,mid,hi);
     }
 
-    private static int[] merge(int[] temp, int[] arr, int lo, int mid, int hi) {
+    private int[] merge(T[] temp, T[] arr, int lo, int mid, int hi) {
         for (int k = lo; k <= hi; k++) {
             temp[k] = arr[k];
         }
@@ -98,5 +98,5 @@ public class ArraySort {
             else                           arr[k] = temp[i++];
         }
         return arr;
-    }
+    }*/
 }

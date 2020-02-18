@@ -1,13 +1,12 @@
-package lesson2;
+package main.java.lesson2;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class main {
     static int[] arrayToSort =new  int[100000];
     static Random random=new Random();
     public static void main(String[] args) {
-        DynamicArray<Integer>array =new DynamicArray<>();
+        /*DynamicArray<Integer>array =new DynamicArray<>();
         array.add(1);
         array.add(2);
         array.add(3);
@@ -23,13 +22,13 @@ public class main {
 
         bubbleSortCheck();
         selectionSortCheck();
-        insertSortCheck();
-        mergeSortCheck();
-        ParallelMergeSortCheck();
+        insertSortCheck();*/
+        /*mergeSortCheck();
+        ParallelMergeSortCheck();*/
 
     }
 
-    private static void ParallelMergeSortCheck() {
+    /*private static void ParallelMergeSortCheck() {
         long time =System.nanoTime();
         System.out.println("Parallel MergeSort  Method");
         ArraySort.ParallelMergeSort(arrayToSort);
@@ -41,7 +40,7 @@ public class main {
         System.out.println("MergeSort Method");
         ArraySort.mergeSort(arrayToSort);
         System.out.println("time:"+(System.nanoTime()-time)/1e-6);
-    }
+    }*/
 
     private static void insertSortCheck() {
         long time =System.nanoTime();
