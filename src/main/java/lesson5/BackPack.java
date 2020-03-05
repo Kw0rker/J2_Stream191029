@@ -31,6 +31,15 @@ public class BackPack {
     }
 
     public static void main(String[] args) {
-        System.out.println(MathPower.power(2,25));
+        find_repid(1,4,3,1,2);
+    }
+    public static void find_repid(int ...arg){
+        int a=0;
+        int b=arg[a];
+        while (a!=b){
+            a=arg[a];
+            b=arg[arg[b]];
+        }
+        System.out.println(a+","+b);
     }
 }
